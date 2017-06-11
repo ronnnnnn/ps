@@ -22,6 +22,7 @@
 			<td>
 				<select  id="she-mtype"  class="esayui-combobox"  name="mtype"   style="width: 100%" data-options="required:true">
 					<option  value='轮播图'>轮播图</option>
+					<option  value='首页图'>首页图</option>
 				</select>
 			</td>
 		</tr>
