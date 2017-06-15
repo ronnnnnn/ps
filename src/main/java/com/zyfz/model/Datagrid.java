@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Datagrid {
 
+	private Integer totalPage;
 	private Long total = 0L;
 	private List rows = new ArrayList();
 
@@ -13,6 +14,12 @@ public class Datagrid {
 	}
 
 	public Datagrid(Long total, List rows) {
+		this.total = total;
+		this.rows = rows;
+	}
+
+	public Datagrid(Integer totalPage, Long total, List rows) {
+		this.totalPage = totalPage;
 		this.total = total;
 		this.rows = rows;
 	}
@@ -33,4 +40,11 @@ public class Datagrid {
 		this.rows = rows;
 	}
 
+	public Integer getTotalPage() {
+		return totalPage;
+	}
+
+	public void setTotalPage(Integer totalPage) {
+		this.totalPage = totalPage;
+	}
 }

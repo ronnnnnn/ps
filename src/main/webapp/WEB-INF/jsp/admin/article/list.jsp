@@ -101,7 +101,14 @@
 			fitColumns : true,
 			nowrap : false,
 			rownumbers : true,
-			columns : [ [ {
+			columns : [ [  {
+				field : 'headPictureUrl',
+				title : 'pic',
+				width : fixWidth(0.00),
+				align : 'center',
+				hidden : true,
+				checkbox : true
+			},{
 				field : 'id',
 				title : '编号',
 				width : fixWidth(0.06),
@@ -214,6 +221,7 @@
 		$('#admin_article_addDialog input').val('');
 		$('#admin_article_addDialog select').val('');
 		$('#paper').val('');
+		$('#uploadfile').val('');
 		ue.setContent("");
 		$('#admin_article_addDialog').dialog('open');
 
@@ -275,6 +283,8 @@
 			$('#type').val(rows[0].type);
 			$('#title').val(rows[0].title);
 			$('#paper').val(rows[0].paper);
+			$('#msh-imageUrl').val(rows[0].headPictureUrl);
+
 			ue.setContent(rows[0].content);
 			$('#admin_article_addDialog').dialog('open');
 		} else {
@@ -374,6 +384,80 @@
 			}
 		});
 	}
+
+	function xsImport() {
+		if ($('#uploadfile').val() == '') {
+			$.messager.show({
+				title : '提示',
+				msg : '请选择一个jpg文件',
+			});
+		} else {
+			$('#admin_a_pic_rollingDialog').dialog('open');
+			$.ajaxFileUpload({
+				url : '${pageContext.request.contextPath}/show/image',//用于文件上传的服务器端请求地址
+				secureuri : true,//是否启用安全提交，一般设置为false
+				fileElementId : 'uploadfile',//文件上传控件的id
+				dataType : 'text',//服务器返回的数据类型
+				success : function(data) {
+					$('#admin_a_pic_rollingDialog').dialog('close');
+					$('#msh-imageUrl').val(data);
+					//var obj = jQuery.parseJSON(data);
+					//var obj = JSON.parse(data);
+					// alert(obj.obj);
+//					if (data.success) {
+//						$('#msh-imageUrl').val(data.obj)
+//					}
+					$.messager.show({
+						title : '提示',
+						msg : "图片上传成功",
+					});
+				},
+				error : function(data, status, e) {
+					$.messager.show({
+						title : '提示',
+						msg : '服务中断或连接超时导致通信失败！' ,
+					});
+				}
+			});
+		}
+	}
+
+	function xsImport4update() {
+		if ($('#uuploadfile').val() == '') {
+			$.messager.show({
+				title : '提示',
+				msg : '请选择一个jpg文件',
+			});
+		} else {
+			$('#admin_a_pic_rollingDialog').dialog('open');
+			$.ajaxFileUpload({
+				url : '${pageContext.request.contextPath}/show/image',//用于文件上传的服务器端请求地址
+				secureuri : true,//是否启用安全提交，一般设置为false
+				fileElementId : 'uuploadfile',//文件上传控件的id
+				dataType : 'text',//服务器返回的数据类型
+				success : function(data) {
+					$('#admin_a_pic_rollingDialog').dialog('close');
+					$('#ush-imageUrl').val(data);
+					//var obj = jQuery.parseJSON(data);
+					//var obj = JSON.parse(data);
+					// alert(obj.obj);
+//					if (data.success) {
+//						$('#msh-imageUrl').val(data.obj)
+//					}
+					$.messager.show({
+						title : '提示',
+						msg : "图片上传成功",
+					});
+				},
+				error : function(data, status, e) {
+					$.messager.show({
+						title : '提示',
+						msg : '服务中断或连接超时导致通信失败！' ,
+					});
+				}
+			});
+		}
+	}
 </script>
 
 
@@ -451,6 +535,23 @@
 					</script>
 				</td>
 			</tr>
+			<tr>
+				<th>图片</th>
+				<td>
+					<input  id="msh-imageUrl" name="headPictureUrl" style="width:100%" class="easyui-validatebox"  />
+				</td>
+			</tr>
+		</table>
+
+		<table>
+			<tr>
+				<td width="80px"></td>
+				<td style="word-break:break-all;padding-left: 10px;">
+					<form id="admin_a_pic_importDialog">
+						<input type="file" id="uploadfile" name="file" /><a id="btn" href="#" class="easyui-linkbutton" onclick="xsImport()" data-options="iconCls:'icon-add'">导入</a>
+					</form>
+				</td>
+			</tr>
 		</table>
 
 	</form>
@@ -461,7 +562,7 @@
 <div id="smpic" class="easyui-dialog"
 	 data-options="closed:true,modal:true,title:'显示文章',buttons:[{
 					text : '确定',
-					handler : function() {
+					handler : function() {1815
 						var v = $('#admin_ArticleInfo_datagrid');
 						v.datagrid('reload');
 						v.datagrid('unselectAll');

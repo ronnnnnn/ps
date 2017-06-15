@@ -37,6 +37,23 @@
 			    </script>
 			</td>
 		</tr>
+		<tr>
+			<th>图片</th>
+			<td>
+				<input  id="ush-imageUrl" name="headPictureUrl" style="width:100%" class="easyui-validatebox" data-options="required:true" />
+			</td>
+		</tr>
+	</table>
+
+	<table>
+		<tr>
+			<td width="80px"></td>
+			<td style="word-break:break-all;padding-left: 10px;">
+				<form id="admin_a_pic_importDialog">
+					<input type="file" id="uuploadfile" name="file" /><a id="btn" href="#" class="easyui-linkbutton" onclick="xsImport4update()" data-options="iconCls:'icon-add'">导入</a>
+				</form>
+			</td>
+		</tr>
 	</table>
 	
 </form>

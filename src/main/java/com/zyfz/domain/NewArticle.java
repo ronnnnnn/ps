@@ -27,6 +27,8 @@ public class NewArticle {
 
     private String date;
 
+    private String headPictureUrl;
+
     public NewArticle() {
         super();
     }
@@ -106,6 +108,14 @@ public class NewArticle {
 
     public void setPaper(String paper) {
         this.paper = paper;
+    }
+
+    public String getHeadPictureUrl() {
+        return headPictureUrl;
+    }
+
+    public void setHeadPictureUrl(String headPictureUrl) {
+        this.headPictureUrl = headPictureUrl;
     }
 
     public String getUrl(){

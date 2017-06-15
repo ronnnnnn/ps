@@ -37,7 +37,7 @@ public class NewArticleServiceImlp implements INewArticleService {
         PageHelper.startPage(pageModel.getPage(),pageModel.getRows());
         List<NewArticle> newArticles = newArticleMapper.selectByCatId(id);
         PageInfo pageInfo = new PageInfo(newArticles);
-        return new Datagrid(pageInfo.getTotal(),newArticles);
+        return new Datagrid(pageInfo.getPages(),pageInfo.getTotal(),newArticles);
     }
 
     @Override

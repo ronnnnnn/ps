@@ -5,11 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=9">
     <meta name="renderer" content="webkit|ie-stand">
-    <title>巨天食品</title>
+    <title>龙岩永杭高速公路</title>
     <!--  标题头像  -->
     <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/tel.png" />
-    <meta name="keywords" content="巨天食品">
-    <meta name="description" content="巨天食品">
+    <meta name="keywords" content="龙岩永杭高速公路">
+    <meta name="description" content="龙岩永杭高速公路">
 
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/css/sprstyle.css" rel="stylesheet" type="text/css">
@@ -35,21 +35,150 @@
         document.createElement('ng:view');
     </script>
     <![endif]-->
+    <style type="text/css">
+        .top {
+            height: 65px;
+            width: 100%;
+            background: url('${pageContext.request.contextPath}/images/top-bg.png') 0 0 repeat-x;
+            position: relative;
+        }
+        .top-area {
+            width: 1184px;
+            position: relative;
+            left: 50%;
+            margin-left: -592px;
+            color: #fff;
+        }
 
+        a:link {
+            text-decoration: none;
+            cursor: pointer;
+            color: #0f6fc4;
+        }
+        a:visited {
+            text-decoration: none;
+            cursor: pointer;
+            color: #0f6fc4;
+        }
+        a:hover {
+            text-decoration: none;
+            cursor: pointer;
+            color: #0f6fc4;
+        }
+        a {
+            text-decoration: none;
+            cursor: pointer;
+        }
+        a, input {
+            outline: none;
+        }
+        .top-logo {
+            width: 221px;
+            height: 42px;
+            position: absolute;
+            top: 23px;
+            left: 0;
+        }
+        img {
+            border: 0;
+        }
+        .QuickLink {
+            position: absolute;
+            right: 0px;
+            top: 19px;
+        }
+        * {
+            margin: 0;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: 0;
+        }
+        ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            -webkit-margin-before: 0em;
+            -webkit-margin-after: 0em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+            -webkit-padding-start: 0px;
+        }
+        .QuickLink li {
+            float: right;
+            background: url('${pageContext.request.contextPath}/images/sj.png') no-repeat 0;
+            padding: 0 0px 0 10px;
+            margin-left: 20px;
+        }
+        .QuickLink li a {
+            display: block;
+            color: #000;
+        }
+        .top-input {
+            width: 123px;
+            height: 30px;
+            background: url('${pageContext.request.contextPath}/images/input.png') 0 0 no-repeat;
+            position: absolute;
+            right: 24px;
+            top: 75px;
+            border: 0;
+            outline: none;
+            padding-left: 10px;
+        }
+        .top-search {
+            width: 27px;
+            height: 27px;
+            background: url('${pageContext.request.contextPath}/images/search.png') 0 0 no-repeat;
+            position: absolute;
+            right: 0;
+            top: 75px;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+        }
+        .tabMenu {
+            position: absolute;
+            top: 71px;
+        }
+        .tabMenu li {
+            width: 136px;
+            height: 40px;
+            line-height: 40px;
+            color: #34333b;
+            text-align: center;
+            float: left;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .tabMenu a {
+            text-decoration: none;
+            color: #000;
+        }
+        .tabMenu a:hover {
+            text-decoration: none;
+            color: #0f6fc4;
+        }
+    </style>
 </head>
 
-<body ng-app="app" ng-controller="index">
+
+<body ng-app="app" ng-controller="index" class="ng-app:app" id="ng-app">
 <!--头部-->
 <header>
-    <div class="header-top">
-        <div class="container fz14"><span class="fl gray">您好！欢迎来到巨天食品！</span> <span class="fr login"><!--<a href="#">免费注册</a> | <a href="#">登录</a>--></span>
-        </div>
-    </div>
-    <div class="head-cont">
-        <div class="container">
-            <div class="logo"><a href="javascript:;"><img src="${pageContext.request.contextPath}/images/logo.png" alt="巨天食品"></a>
+    <div class="top">
+        <div class="top-area">
+            <div class="top-area-a" style="position: relative">
+                <a href="../index.aspx">
+                    <img src="${pageContext.request.contextPath}/images/logo.png" class="top-logo" alt=""></a>
+                <div class="QuickLink">
+                    <ul>
+                        <li><a href="javascript:void(0);" onclick="IsIEE()">OA系统入口</a></li>
+                        <li><a href="javascript:void(0);" onclick="SetHome(this,'http://www.kingee.cn');">设为首页</a></li>
+                    </ul>
+                </div>
+                <input type="text" class="top-input" placeholder="关键字">
+                <input type="button" class="top-search">
             </div>
-            <div class="tell fr"><i class="cal">132-9010-2000</i></div>
         </div>
     </div>
 </header>
@@ -67,11 +196,9 @@
         <div id="box-{{menu.id}}" class="hidden-box hidden-loc-{{menu.id}}" style="display: none;" ng-repeat="menu in menulist">
             <ul>
                 <li ng-repeat="next in menu.nextlist"><a href="{{next.url}}">{{next.name}}</a></li>
-
             </ul>
         </div>
     </div>
-
 </div>
 <section>
     <div class="aboutbanner" style="background-image: url(${pageContext.request.contextPath}/images/nben.jpg);"></div>
@@ -92,7 +219,7 @@
         <%--</div>--%>
     </aside>
     <article class="articles fr">
-        <h2 class="breadcrumb"  ng-repeat="nav in leftNavMain" ng-if="nav.on">
+        <h2 class="breadcrumb" ng-repeat="nav in leftNavMain" ng-if="nav.on">
             <p class="fr" ><em>您的位置:</em> <a href="/ps/">首页</a> &gt; <a href="javascript:;"><c:if test="${!empty currentPosition}">${currentPosition}</c:if></a></p>
             <span><c:if test="${!empty currentPosition}">${currentPosition}</c:if></span></h2>
 
@@ -114,15 +241,15 @@
             </div>
         </div>
         <div class="ft_center">
-            <p class="ts fmy">Copyright © 2017 济南巨天食品有限公司</p>
+            <p class="ts fmy">Copyright © 2017 龙岩永杭高速公路有限公司</p>
         </div>
         <div class="ft_right">
             <p class="ewm"><img src="${pageContext.request.contextPath}/images/wechat.jpg" width="50" height="50"></p>
-            <p class="wxh">扫一扫，关注巨天食品微信</p>
+            <p class="wxh">扫一扫，关注龙岩永杭高速公路微信</p>
         </div>
     </div>
     <%--<div class="copy fmy">--%>
-        <%--<p>Copyright © 2017 济南巨天食品有限公司</p>--%>
+        <%--<p>Copyright © 2017 龙岩永杭高速公路有限公司</p>--%>
     <%--</div>--%>
 </footer>
 

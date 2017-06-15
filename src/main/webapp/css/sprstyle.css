@@ -26,13 +26,13 @@ ul.nav-main span { display: inline-block; margin-left: 18px; width: 7px; height:
 /*导航条设置*/
 ul.nav-main>li { float: left; width: 135px; background: url(../images/Livelist.png) no-repeat right -61px; font-size: 16px; font-family: Microsoft YaHei; color: #222222; text-align: center; cursor: pointer; line-height: 53px; cursor: pointer; }
 ul.nav-main>li a { display: block; width: 135px; height: 53px; text-decoration: none; }
-ul.nav-main>li a:hover, ul.nav-main>li.active a { color: #fff; background: #444444; text-decoration: none; border-bottom: 3px solid #e62129; }
+ul.nav-main>li a:hover, ul.nav-main>li.active a { color: #fff; background: #444444; text-decoration: none; border-bottom: 3px solid #0f6fc4; }
 /*隐藏盒子设置*/
 div.hidden-box { width: 135px; border-top: 0; position: absolute; display: none; background: #444; Z-INDEX: 300; filter: alpha(opacity=90); opacity: 0.9; top: 72px; }
 .hidden-box>ul { list-style-type: none; background: #444; filter: alpha(opacity=90); cursor: pointer; }
 .hidden-box li { line-height: 38px; height: 38px; border-bottom: #454 1px solid; }
 .hidden-box li a { display: block; font-size: 14px; text-align: center; color: #fff; font-family: "Microsoft YaHei"; }
-.hidden-box li a:hover { text-decoration: none; background: #ca1621; color: #fff; filter: alpha(opacity=80); opacity: 1; }
+.hidden-box li a:hover { text-decoration: none; background: #0f6fc4; color: #fff; filter: alpha(opacity=80); opacity: 1; }
 /*隐藏盒子位置设置*/
 .hidden-loc-1 { left: 135px; }
 .hidden-loc-2 { left: 270px; }

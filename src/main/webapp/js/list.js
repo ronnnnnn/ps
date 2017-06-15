@@ -66,6 +66,12 @@ angular.module("app",[])
 
 
 
+        $http.get("/ps/client/api/v2/anon/article/" + getCID()).success(function(data) {
+            //$scope.deparList = data.deparList;
+            $scope.articleList = data.listDate;
+            $scope.page = data.pageModel;
+        });
+
         //不需要看
         $scope.$on('ngRepeatFinished', function( ngRepeatFinishedEvent ) {
             var ie6 = !-[1,] && !window.XMLHttpRequest;
@@ -133,33 +139,35 @@ angular.module("app",[])
         });
 
 
-        $http.get("/ps/client/api/v2/anon/article/" + 41+"?pageNumber=1&pageSize=1").success(function(data) {
-            //$scope.deparList = data.deparList;
-            $scope.aboutContent = '' + data.listDate[0].paper+'';    //主体内容
-            //更多
-            $scope.aboutMoreUrl = data.listDate[0].url;    //更多连接
-            //图片
-            $scope.headPic = data.listDate[0].headPictureUrl;
-        });
 
 
-        $http.get("/ps/client/api/v1/anon/module/15").success(function(data) {
-            //$scope.deparList = data.deparList;
-            $scope.businessList = data;
-            $scope.businessUrl = '/ps/client/api/v1/anon/article/32';
-        });
+        $scope.pageclick = function(page) {
+            function getPage() {
+                var cpage = 0;
+                var totalnum = 0;
+                cpage = $scope.page.cpage;
+                totalnum = $scope.page.totalnum;
+                if (page == "«") {
+                    if (cpage > 1) {
+                        cpage -= 1;
+                    }
+                } else if (page == "»") {
+                    if (cpage < totalnum)
+                        cpage += 1;
+                } else {
+                    cpage = page;
+                }
+                return cpage;
+            }
 
-        $http.get("/ps/client/api/v2/anon/article/" + 26 +"?pageNumber=1&pageSize=5").success(function(data) {
-            //$scope.deparList = data.deparList;
-            $scope.newsList = data.listDate;
-            $scope.newsUrl = '/ps/client/api/v1/anon/article/26';
-        });
+            page = getPage();
 
-        $http.get("/ps/client/api/v2/anon/article/" + 30 +"?pageNumber=1&pageSize=5").success(function(data) {
-            //$scope.deparList = data.deparList;
-            $scope.resultList = data.listDate;
-            $scope.resultsUrl = '/ps/client/api/v1/anon/article/30';
-        });
+            $http.get("/ps/client/api/v2/anon/article/" + getCID() + "?pageNumber=" + page).success(function(data) {
+                //$scope.deparList = data.deparList;
+                $scope.articleList = data.listDate;
+                $scope.page = data.pageModel;
+            });
+        };
 
     }).directive('onFinishRender', function ($timeout) {
     return {
@@ -178,3 +186,7 @@ function setUrl(url) {
     $('#aboutPic').attr("src",url);
 }
 
+
+function getCID() {
+    return $('#cid').val();
+}

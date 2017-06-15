@@ -26,6 +26,7 @@ public class NewOrArticleController extends BaseController {
     @Resource
     ICategoryService categoryService;
 
+
     @RequestMapping(value = "/content-panel")
     public String toList(Model model){
         model.addAttribute("vcategoryList",categoryService.getAllWithList());

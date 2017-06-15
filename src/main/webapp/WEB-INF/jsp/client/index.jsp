@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9">
 
     <meta name="renderer" content="webkit|ie-stand">
-    <title>巨天食品</title>
+    <title>龙岩永杭高速公路</title>
     <!--  标题头像  -->
     <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/tel.png" />
-    <meta name="keywords" content="巨天食品">
-    <meta name="description" content="巨天食品">
+    <meta name="keywords" content="龙岩永杭高速公路">
+    <meta name="description" content="龙岩永杭高速公路">
 
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/css/sprstyle.css" rel="stylesheet" type="text/css">
@@ -38,22 +38,152 @@
         document.createElement('ng:view');
     </script>
     <![endif]-->
+    <style type="text/css">
+        .top {
+            height: 65px;
+            width: 100%;
+            background: url('${pageContext.request.contextPath}/images/top-bg.png') 0 0 repeat-x;
+            position: relative;
+        }
+        .top-area {
+            width: 1184px;
+            position: relative;
+            left: 50%;
+            margin-left: -592px;
+            color: #fff;
+        }
+
+        a:link {
+            text-decoration: none;
+            cursor: pointer;
+            color: #0f6fc4;
+        }
+        a:visited {
+            text-decoration: none;
+            cursor: pointer;
+            color: #0f6fc4;
+        }
+        a:hover {
+            text-decoration: none;
+            cursor: pointer;
+            color: #0f6fc4;
+        }
+        a {
+            text-decoration: none;
+            cursor: pointer;
+        }
+        a, input {
+            outline: none;
+        }
+        .top-logo {
+            width: 221px;
+            height: 42px;
+            position: absolute;
+            top: 23px;
+            left: 0;
+        }
+        img {
+            border: 0;
+        }
+        .QuickLink {
+            position: absolute;
+            right: 0px;
+            top: 19px;
+        }
+        * {
+            margin: 0;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: 0;
+        }
+        ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            -webkit-margin-before: 0em;
+            -webkit-margin-after: 0em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+            -webkit-padding-start: 0px;
+        }
+        .QuickLink li {
+            float: right;
+            background: url('${pageContext.request.contextPath}/images/sj.png') no-repeat 0;
+            padding: 0 0px 0 10px;
+            margin-left: 20px;
+        }
+        .QuickLink li a {
+            display: block;
+            color: #000;
+        }
+        .top-input {
+            width: 123px;
+            height: 30px;
+            background: url('${pageContext.request.contextPath}/images/input.png') 0 0 no-repeat;
+            position: absolute;
+            right: 24px;
+            top: 75px;
+            border: 0;
+            outline: none;
+            padding-left: 10px;
+        }
+        .top-search {
+            width: 27px;
+            height: 27px;
+            background: url('${pageContext.request.contextPath}/images/search.png') 0 0 no-repeat;
+            position: absolute;
+            right: 0;
+            top: 75px;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+        }
+        .tabMenu {
+            position: absolute;
+            top: 71px;
+        }
+        .tabMenu li {
+            width: 136px;
+            height: 40px;
+            line-height: 40px;
+            color: #34333b;
+            text-align: center;
+            float: left;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .tabMenu a {
+            text-decoration: none;
+            color: #000;
+        }
+        .tabMenu a:hover {
+            text-decoration: none;
+            color: #0f6fc4;
+        }
+    </style>
 </head>
+
 
 <body ng-app="app" ng-controller="index" class="ng-app:app" id="ng-app">
 <!--头部-->
 <header>
-    <div class="header-top">
-        <div class="container fz14"><span class="fl gray">您好！欢迎来到巨天食品！</span> <span class="fr login"><!--<a href="#">免费注册</a> | <a href="#">登录</a>--></span>
-        </div>
-    </div>
-    <div class="head-cont">
-        <div class="container">
-            <div class="logo"><a href="javascript:;"><img src="${pageContext.request.contextPath}/images/logo.png" alt="巨天食品"/></a>
+        <div class="top">
+            <div class="top-area">
+                <div class="top-area-a" style="position: relative">
+                    <a href="../index.aspx">
+                        <img src="${pageContext.request.contextPath}/images/logo.png" class="top-logo" alt=""></a>
+                    <div class="QuickLink">
+                        <ul>
+                            <li><a href="javascript:void(0);" onclick="IsIEE()">OA系统入口</a></li>
+                            <li><a href="javascript:void(0);" onclick="SetHome(this,'http://www.kingee.cn');">设为首页</a></li>
+                        </ul>
+                    </div>
+                    <input type="text" class="top-input" placeholder="关键字">
+                    <input type="button" class="top-search">
+                </div>
             </div>
-            <div class="tell fr"><i class="cal">132-9010-2000</i></div>
         </div>
-    </div>
 </header>
 
 <!--导航-->
@@ -69,14 +199,11 @@
         <div id="box-{{menu.id}}" class="hidden-box hidden-loc-{{menu.id}}" style="display: none;" ng-repeat="menu in menulist">
             <ul>
                 <li ng-repeat="next in menu.nextlist"><a href="{{next.url}}">{{next.name}}</a></li>
-
             </ul>
         </div>
-
-
     </div>
-
 </div>
+
 
 
 <div class="slide banner" data-slide="{&quot;action&quot;:&quot;click&quot;,&quot;fn&quot;:&quot;banner_ext&quot;,&quot;time&quot;:&quot;5000&quot;}" >
@@ -97,270 +224,192 @@
     <div class="container">
         <div class="w-main">
             <dl class="i_about">
-                <dt><img style="padding-top: 50px" id="aboutPic" src="" alt="走进巨天"></dt>
+                <dt><img src="{{headPic}}" style="width: 311px ;height: 239px" alt=""></dt>
                 <dd>
-                    <div class="i_title"><span class="fmy">走进巨天食品</span></div>
+                    <div class="i_title"><span class="fmy">公司简介</span> <a
+                            href="{{aboutMoreUrl}}"
+                            class="more">更多&gt;&gt;</a></div>
                     <div class="ctn">
                         <p ng-bind="aboutContent"></p>
                     </div>
                 </dd>
             </dl>
+            <div class="i_box">
+                <div class="box_l">
+                    <%--<div class="news mt20">--%>
+                        <%--<div class="box_h"><span><strong>公司简介</strong></span><a--%>
+                                <%--href="{{moneyInfoMoreUrl}}">更多&gt;&gt;</a>--%>
+                        <%--</div>--%>
+                        <%--<div class="list">--%>
+                            <%--<div class="first">--%>
+                                <%--<div class="pic fl mr15">--%>
+                                    <%--<a href="{{lastNewsContentUrl}}">--%>
+                                        <%--<img src="${pageContext.request.contextPath}/images/new.jpg">--%>
+                                    <%--</a>--%>
+                                <%--</div>--%>
+                                <%--<div>--%>
+                                    <%--<a href="{{lastNewsContentUrl}}">--%>
+                                        <%--<h1>{{lastNewsTitle}}</h1>--%>
+                                    <%--</a>--%>
+                                    <%--<p></p>--%>
+                                    <%--<div class="tools"><span>{{lastNewsTime}}</span>--%>
+                                        <%--<a href="{{lastNewsContentUrl}}">【全文】</a>--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                            <%--<ul>--%>
+                                <%--<li ng-repeat="info in moneyInfoList">--%>
+                                    <%--<span>{{info.time}}</span>--%>
+                                    <%--<a href="{{info.contentUrl}}">--%>
+                                        <%--<i>&gt;</i> {{info.title}}--%>
+                                    <%--</a>--%>
+                                <%--</li>--%>
 
-            <dl class="i_about">
-                <dt></dt>
-                <dd>
-                    <div class="i_title"><span class="fmy">合作伙伴</span></div>
-                    <div class="ft_right">
-                        <p class="ewm"><img src="${pageContext.request.contextPath}/images/parter.png" width="450" height="211"></p>
+
+                            <%--</ul>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <div class="news mt20">
+                        <div class="box_h"><span><strong>业务</strong></span><a
+                                href="{{businessUrl}}">更多&gt;&gt;</a>
+                        </div>
+                        <div class="list" ng-repeat="business in businessList">
+                            <div class="first mb20">
+                                <div>
+                                    <a href="{{business.url}}">
+                                        <h1>{{business.paper}}</h1>
+                                    </a>
+                                    <p></p>
+                                    <div class="tools"><span>{{business.createTime | date : 'yyyy-MM-dd HH:MM:ss'}}</span>
+                                        <a href="{{business.url}}">【全文】</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </dd>
-            </dl>
 
-            <dl class="i_about">
-                <dt></dt>
-                <dd>
-                    <div class="i_title"><span class="fmy">关注我们</span></div>
-                    <div class="ft_right">
-                        <p class="ewm"><img src="${pageContext.request.contextPath}/images/wechat.jpg" width="150" height="150"></p>
-                        <p class="wxh">扫一扫，关注巨天食品微信</p>
+                    <%--<div class="i_news mt20">--%>
+                        <%--<div class="box">--%>
+                            <%--<div class="box_h"><span class="fmy">融汇盈内参</span> <a--%>
+                                    <%--href="{{internalUrl}}">更多&gt;&gt;</a>--%>
+                            <%--</div>--%>
+                            <%--<ul class="box_m">--%>
+                                <%--<li ng-repeat="internal in internalList">--%>
+                                    <%--<p>--%>
+                                        <%--<a href="{{internal.contentUrl}}">{{internal.title}}</a>--%>
+                                    <%--</p>--%>
+                                    <%--<span>{{internal.time}}</span>--%>
+                                <%--</li>--%>
+
+                            <%--</ul>--%>
+                        <%--</div>--%>
+                        <%--<div class="box" style="margin-right:0px;">--%>
+                            <%--<div class="box_h"><span class="fmy">融汇盈战法</span> <a--%>
+                                    <%--href="{{methodlUrl}}">更多&gt;&gt;</a>--%>
+                            <%--</div>--%>
+                            <%--<ul class="box_m">--%>
+                                <%--<li ng-repeat="method in methodList">--%>
+                                    <%--<p>--%>
+                                        <%--<a href="{{method.contentUrl}}">{{method.title}}</a>--%>
+                                    <%--</p>--%>
+                                    <%--<span>{{method.time}}</span>--%>
+                                <%--</li>--%>
+
+                            <%--</ul>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                </div>
+                <div class="box_r aside">
+                    <%--<div class="video mt30">--%>
+                    <%--<div class="title">交易所介绍</div>--%>
+                    <%--<div class="video_con">--%>
+                    <%--<!--                            http://player.youku.com/player.php/sid/XODkxMTIzNzYw/v.swf-->--%>
+                    <%--<embed src="{{videoUrl}}"--%>
+                    <%--allowfullscreen="true" quality="high" width="300" height="300" align="middle"--%>
+                    <%--allowscriptaccess="always" type="application/x-shockwave-flash">--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="school">--%>
+                        <%--<div class="title">融汇盈学院</div>--%>
+                        <%--<ul>--%>
+                            <%--<li><a id="school1"--%>
+                                   <%--href="http://www.xrh66.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=64">--%>
+                                <%--<p>开户指南</p>--%>
+                            <%--</a></li>--%>
+                            <%--<li><a id="school2"--%>
+                                   <%--href="http://www.xrh66.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=61">--%>
+                                <%--<p>签约流程</p>--%>
+                            <%--</a></li>--%>
+                            <%--<li><a id="school3"--%>
+                                   <%--href="http://www.xrh66.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=63">--%>
+                                <%--<p>开设实盘</p>--%>
+                            <%--</a></li>--%>
+                            <%--<li><a id="school4"--%>
+                                   <%--href="http://www.xrh66.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=69">--%>
+                                <%--<p>交易规则</p>--%>
+                            <%--</a></li>--%>
+                            <%--<li><a id="school5"--%>
+                                   <%--href="http://www.xrh66.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=71">--%>
+                                <%--<p>基础知识</p>--%>
+                            <%--</a></li>--%>
+                            <%--<li><a id="school6"--%>
+                                   <%--href="http://www.xrh66.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=72">--%>
+                                <%--<p>投资技巧</p>--%>
+                            <%--</a></li>--%>
+                            <%--<li><a id="school7"--%>
+                                   <%--href="http://www.xrh66.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=73">--%>
+                                <%--<p>投资攻略</p>--%>
+                            <%--</a></li>--%>
+                            <%--<li><a id="school8"--%>
+                                   <%--href="http://www.xrh66.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=70">--%>
+                                <%--<p>技术面分析</p>--%>
+                            <%--</a></li>--%>
+                        <%--</ul>--%>
+                    <%--</div>--%>
+                    <div class="notice">
+                        <div class="title">公司新闻
+                            <a class="more" href="{{newsUrl}}">更多&gt;&gt;</a>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li ng-repeat="news in newsList">
+                                    <a href="{{news.url}}">{{news.title}}</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </dd>
-            </dl>
-            <%--<div class="i_box">--%>
-            <%--<div class="box_l">--%>
-            <%--<div class="news mt20">--%>
-            <%--<div class="box_h"><span><strong>财经资讯</strong></span><a--%>
-            <%--href="{{moneyInfoMoreUrl}}">更多&gt;&gt;</a>--%>
-            <%--</div>--%>
-            <%--<div class="list">--%>
-            <%--<div class="first">--%>
-            <%--<div class="pic fl mr15">--%>
-            <%--<a href="{{lastNewsContentUrl}}">--%>
-            <%--<img src="${pageContext.request.contextPath}/images/new.jpg">--%>
-            <%--</a>--%>
-            <%--</div>--%>
-            <%--<div>--%>
-            <%--<a href="{{lastNewsContentUrl}}">--%>
-            <%--<h1>{{lastNewsTitle}}</h1>--%>
-            <%--</a>--%>
-            <%--<p></p>--%>
-            <%--<div class="tools"><span>{{lastNewsTime}}</span>--%>
-            <%--<a href="{{lastNewsContentUrl}}">【全文】</a>--%>
-            <%--</div>--%>
-            <%--</div>--%>
-            <%--</div>--%>
-            <%--<ul>--%>
-            <%--<li ng-repeat="info in moneyInfoList">--%>
-            <%--<span>{{info.time}}</span>--%>
-            <%--<a href="{{info.contentUrl}}">--%>
-            <%--<i>&gt;</i> {{info.title}}--%>
-            <%--</a>--%>
-            <%--</li>--%>
-
-
-            <%--</ul>--%>
-            <%--</div>--%>
-            <%--</div>--%>
-            <%--<div class="news mt20">--%>
-            <%--<div class="box_h"><span><strong>交易所动态</strong></span><a--%>
-            <%--href="{{exchangeUrl}}">更多&gt;&gt;</a>--%>
-            <%--</div>--%>
-            <%--<div class="list" ng-repeat="exchange in exchangeList">--%>
-            <%--<div class="first mb20">--%>
-            <%--<div>--%>
-            <%--<a href="{{exchange.contentUrl}}">--%>
-            <%--<h1>{{exchange.title}}</h1>--%>
-            <%--</a>--%>
-            <%--<p></p>--%>
-            <%--<div class="tools"><span>{{exchange.time}}</span>--%>
-            <%--<a href="{{exchange.contentUrl}}">【全文】</a>--%>
-            <%--</div>--%>
-            <%--</div>--%>
-            <%--</div>--%>
-            <%--</div>--%>
-            <%--</div>--%>
-
-            <%--<div class="i_news mt20">--%>
-            <%--<div class="box">--%>
-            <%--<div class="box_h"><span class="fmy">巨天食品内参</span> <a--%>
-            <%--href="{{internalUrl}}">更多&gt;&gt;</a>--%>
-            <%--</div>--%>
-            <%--<ul class="box_m">--%>
-            <%--<li ng-repeat="internal in internalList">--%>
-            <%--<p>--%>
-            <%--<a href="{{internal.contentUrl}}">{{internal.title}}</a>--%>
-            <%--</p>--%>
-            <%--<span>{{internal.time}}</span>--%>
-            <%--</li>--%>
-
-            <%--</ul>--%>
-            <%--</div>--%>
-            <%--<div class="box" style="margin-right:0px;">--%>
-            <%--<div class="box_h"><span class="fmy">巨天食品战法</span> <a--%>
-            <%--href="{{methodlUrl}}">更多&gt;&gt;</a>--%>
-            <%--</div>--%>
-            <%--<ul class="box_m">--%>
-            <%--<li ng-repeat="method in methodList">--%>
-            <%--<p>--%>
-            <%--<a href="{{method.contentUrl}}">{{method.title}}</a>--%>
-            <%--</p>--%>
-            <%--<span>{{method.time}}</span>--%>
-            <%--</li>--%>
-
-            <%--</ul>--%>
-            <%--</div>--%>
-            <%--</div>--%>
-            <%--</div>--%>
-            <%--<div class="box_r aside">--%>
-            <%--&lt;%&ndash;<div class="video mt30">&ndash;%&gt;--%>
-            <%--&lt;%&ndash;<div class="title">交易所介绍</div>&ndash;%&gt;--%>
-            <%--&lt;%&ndash;<div class="video_con">&ndash;%&gt;--%>
-            <%--&lt;%&ndash;<!--                            http://player.youku.com/player.php/sid/XODkxMTIzNzYw/v.swf-->&ndash;%&gt;--%>
-            <%--&lt;%&ndash;<embed src="{{videoUrl}}"&ndash;%&gt;--%>
-            <%--&lt;%&ndash;allowfullscreen="true" quality="high" width="300" height="300" align="middle"&ndash;%&gt;--%>
-            <%--&lt;%&ndash;allowscriptaccess="always" type="application/x-shockwave-flash">&ndash;%&gt;--%>
-            <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-            <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-            <%--<div class="school">--%>
-            <%--<div class="title">巨天食品学院</div>--%>
-            <%--<ul>--%>
-            <%--<li><a id="school1"--%>
-            <%--href="http://www.xrh66.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=64">--%>
-            <%--<p>开户指南</p>--%>
-            <%--</a></li>--%>
-            <%--<li><a id="school2"--%>
-            <%--href="http://www.xrh66.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=61">--%>
-            <%--<p>签约流程</p>--%>
-            <%--</a></li>--%>
-            <%--<li><a id="school3"--%>
-            <%--href="http://www.xrh66.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=63">--%>
-            <%--<p>开设实盘</p>--%>
-            <%--</a></li>--%>
-            <%--<li><a id="school4"--%>
-            <%--href="http://www.xrh66.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=69">--%>
-            <%--<p>交易规则</p>--%>
-            <%--</a></li>--%>
-            <%--<li><a id="school5"--%>
-            <%--href="http://www.xrh66.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=71">--%>
-            <%--<p>基础知识</p>--%>
-            <%--</a></li>--%>
-            <%--<li><a id="school6"--%>
-            <%--href="http://www.xrh66.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=72">--%>
-            <%--<p>投资技巧</p>--%>
-            <%--</a></li>--%>
-            <%--<li><a id="school7"--%>
-            <%--href="http://www.xrh66.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=73">--%>
-            <%--<p>投资攻略</p>--%>
-            <%--</a></li>--%>
-            <%--<li><a id="school8"--%>
-            <%--href="http://www.xrh66.com/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=70">--%>
-            <%--<p>技术面分析</p>--%>
-            <%--</a></li>--%>
-            <%--</ul>--%>
-            <%--</div>--%>
-            <%--<div class="notice">--%>
-            <%--<div class="title">公司新闻--%>
-            <%--<a class="more" href="{{newsUrl}}">更多&gt;&gt;</a>--%>
-            <%--</div>--%>
-            <%--<div class="list">--%>
-            <%--<ul>--%>
-            <%--<li ng-repeat="news in newsList">--%>
-            <%--<a href="{{news.contentUrl}}">{{news.title}}</a>--%>
-            <%--</li>--%>
-            <%--</ul>--%>
-            <%--</div>--%>
-            <%--</div>--%>
-            <%--</div>--%>
-            <%--</div>--%>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<%--<section class="content pt30 ">--%>
-<%--<div class="container">--%>
-<%--<div class="client">--%>
-<%--<div class="title">--%>
-<%--<h1 class="fmy">合作伙伴</h1>--%>
-<%--</div>--%>
-<%--<div class="client_list">--%>
-<%--<ul>--%>
-<%--<li>--%>
-<%--<a href="#" title="浦发银行" target="_blank">--%>
-<%--<img src="${pageContext.request.contextPath}/images/bank/20160419050602672.png" width="122"--%>
-<%--height="48">--%>
-<%--</a>--%>
-<%--</li>--%>
-<%--<li>--%>
-<%--<a href="#" title="供销集团" target="_blank">--%>
-<%--<img src="${pageContext.request.contextPath}/images/bank/20160419050901315.png" width="122"--%>
-<%--height="48">--%>
-<%--</a>--%>
-<%--</li>--%>
-<%--<li>--%>
-<%--<a href="#" title="再生资源" target="_blank">--%>
-<%--<img src="${pageContext.request.contextPath}/images/bank/20160419051027281.png" width="122"--%>
-<%--height="48">--%>
-<%--</a>--%>
-<%--</li>--%>
-<%--<li>--%>
-<%--<a href="#" title="畜产品流通协会" target="_blank">--%>
-<%--<img src="${pageContext.request.contextPath}/images/bank/20160419051122228.png" width="122"--%>
-<%--height="48">--%>
-<%--</a>--%>
-<%--</li>--%>
-<%--<li>--%>
-<%--<a href="#" title="中国银行" target="_blank">--%>
-<%--<img src="${pageContext.request.contextPath}/images/bank/20160419051145925.png" width="122"--%>
-<%--height="48">--%>
-<%--</a>--%>
-<%--</li>--%>
-<%--<li>--%>
-<%--<a href="#" title="再生资源回收" target="_blank">--%>
-<%--<img src="${pageContext.request.contextPath}/images/bank/20160419051220320.png" width="122"--%>
-<%--height="48">--%>
-<%--</a>--%>
-<%--</li>--%>
-<%--<li>--%>
-<%--<a href="#" title="再生资源信息网" target="_blank">--%>
-<%--<img src="${pageContext.request.contextPath}/images/bank/20160419051306231.png" width="122"--%>
-<%--height="48">--%>
-<%--</a>--%>
-<%--</li>--%>
-<%--<li>--%>
-<%--<a href="#" title="中国农业银行" target="_blank">--%>
-<%--<img src="${pageContext.request.contextPath}/images/bank/20160419051338206.png" width="122"--%>
-<%--height="48">--%>
-<%--</a>--%>
-<%--</li>--%>
-<%--<li>--%>
-<%--<a href="#" title="工商银行" target="_blank">--%>
-<%--<img src="${pageContext.request.contextPath}/images/bank/20160419051406229.png" width="122"--%>
-<%--height="48">--%>
-<%--</a>--%>
-<%--</li>--%>
-<%--<li>--%>
-<%--<a href="#" title="建设银行" target="_blank">--%>
-<%--<img src="${pageContext.request.contextPath}/images/bank/20160419051433806.png" width="122"--%>
-<%--height="48">--%>
-<%--</a>--%>
-<%--</li>--%>
-<%--<li>--%>
-<%--<a href="#" title="平安银行" target="_blank">--%>
-<%--<img src="${pageContext.request.contextPath}/images/bank/20160419051516888.png" width="122"--%>
-<%--height="48">--%>
-<%--</a>--%>
-<%--</li>--%>
-<%--<li>--%>
-<%--<a href="#" title="再生资源国际交易" target="_blank">--%>
-<%--<img src="${pageContext.request.contextPath}/images/bank/20160419051543614.png" width="122"--%>
-<%--height="48">--%>
-<%--</a>--%>
-<%--</li>--%>
-<%--</ul>--%>
-<%--</div>--%>
-<%--</div>--%>
-<%--</div>--%>
-<%--</section>--%>
+<section class="content pt30 ">
+    <div class="container">
+        <div class="client">
+            <div class="title">
+                <h1 class="fmy">业绩</h1>
+            </div>
+            <div class="news mt20">
+                <div class="list" ng-repeat="result in resultList">
+                    <div class="first mb20">
+                        <div>
+                            <a href="{{result.url}}">
+                                <h1>{{result.paper}}</h1>
+                            </a>
+                            <p></p>
+                            <div class="tools"><span>{{result.createTime | date : 'yyyy-MM-dd HH:MM:ss '}}</span>
+                                <a href="{{result.url}}">【全文】</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
 
 
 <script type="text/javascript">
@@ -405,7 +454,7 @@
     <%--</div>--%>
     <%--</div>--%>
     <div class="copy fmy">
-        <p>Copyright © 2017 济南巨天食品有限公司</p>
+        <p>Copyright © 2017 龙岩永杭高速公路有限公司</p>
     </div>
 </footer>
 
